@@ -54,7 +54,7 @@ router.get('/posts/:post', function(req, res) {
 });
 
 router.put('/posts/:post/upvote', function(req, res, next) {
-    console.log('upvote::', req.post);
+    console.log('post upvote::', req.post);
     req.post.upvote(function(err, post) {
         if (err) { return next(err); }
         
@@ -86,7 +86,9 @@ router.put('/posts/:post/comments', function(req, res, next) {
     });
 });
 
-router.put('/posts/:post/comments/:comment/upvotes', function(req, res, next) {
+router.get('/posts/:post/comments/:comment', function(req, res, next) {
+    console.log('post get::', req.post);
+    console.log('comment get::', req.comment);
 });
 
 router.param('comment', function(res, req, next, id) {
